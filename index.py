@@ -1,9 +1,10 @@
 # https://dopeldev.sbs index page site
+from typing import List
 from flask import Flask, render_template, send_from_directory
 
 index = Flask(__name__)
 
-services = ['Chat', 'Cloud', 'Jitsi', 'Minecraft', 'Mumble', 'Nextcloud', 'OpenVPN']
+services = ['Chat', 'Cloud', 'Jitsi', 'Humble', 'Nextcloud', 'OpenVPN']
 
 @index.route('/favicon.ico')
 def favicon():
