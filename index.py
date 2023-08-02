@@ -3,7 +3,7 @@ from typing import List
 from flask import Flask, render_template, send_from_directory
 from pathlib import Path
 
-BASE_DIR = Path(__name__).absolute().parent
+BASE_DIR = Path(__name__).parent.absolute()
 index = Flask(__name__)
 
 services = ['Chat', 'Cloud', 'Jitsi', 'Humble', 'Nextcloud', 'OpenVPN']
