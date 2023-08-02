@@ -1,7 +1,9 @@
 # https://dopeldev.sbs index page site
 from typing import List
 from flask import Flask, render_template, send_from_directory
+from pathlib import Path
 
+BASE_DIR = Path(__name__).absolute().parent
 index = Flask(__name__)
 
 services = ['Chat', 'Cloud', 'Jitsi', 'Humble', 'Nextcloud', 'OpenVPN']
@@ -12,7 +14,8 @@ def favicon():
 
 @index.route('.well-known/acme-challenge/<path:filename>')
 def acme_challenge(filename):
-    return send_from_directory('/var/www/apps/index_sbs/cert/.well-known/acme-challenge', filename)
+    path = BASE_DIR / 'cert' / '.well-known' / 'acme-challenge'
+    return send_from_directory(path, filename)
 
 @index.route('/')
 def index_page(services = services):
