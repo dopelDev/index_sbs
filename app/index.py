@@ -12,10 +12,10 @@ services = ['Chat', 'Cloud', 'Jitsi', 'Humble', 'Nextcloud', 'OpenVPN']
 def favicon():
     return send_from_directory('static', 'favicon.ico')
 
-@index.route('.well-known/acme-challenge/<path:filename>')
-def acme_challenge(filename):
-    path = BASE_DIR / 'cert' / '.well-known' / 'acme-challenge'
-    return send_from_directory(path, filename)
+#@index.route('/.well-known/acme-challenge/<path:filename>')
+#def acme_challenge(filename):
+#    path = BASE_DIR / 'cert' / '.well-known' / 'acme-challenge'
+#    return send_from_directory(path, filename)
 
 @index.route('/')
 def index_page(services = services):
